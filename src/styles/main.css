@@ -1,0 +1,271 @@
+/* App Shell */
+#app {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Fixed Scrollytelling Stage */
+.stage-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+#car-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: auto;
+}
+
+.scroll-track {
+  position: relative;
+  width: 100%;
+  height: 700vh; /* Dedicated 700vh runway: ensures all 300 frames complete BEFORE footer enters */
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Top Navigation Bar */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 100;
+  background: linear-gradient(180deg, rgba(5, 5, 5, 0.85) 0%, rgba(5, 5, 5, 0) 100%);
+  pointer-events: auto;
+  backdrop-filter: blur(8px);
+}
+
+.brand-block {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-mark {
+  font-family: var(--font-headline);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-badge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  padding: 2px 6px;
+  background: var(--border-subtle);
+  border: 1px solid var(--border-medium);
+  border-radius: 2px;
+  color: var(--text-secondary);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-link {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--text-secondary);
+  transition: color var(--timing-fast);
+  position: relative;
+  padding: 6px 0;
+  cursor: pointer;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--text-primary);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--accent-color);
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Sound Controller Widget */
+.sound-widget {
+  display: flex;
+  align-items: center;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 4px;
+  padding: 3px 6px;
+  backdrop-filter: var(--glass-blur);
+}
+
+.sound-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  border-radius: 2px;
+  transition: all var(--timing-fast);
+}
+
+.sound-toggle-btn.active {
+  color: var(--accent-color);
+}
+
+.sound-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 10px;
+}
+
+.sound-bar {
+  width: 2px;
+  height: 3px;
+  background: currentColor;
+  border-radius: 1px;
+  transition: height 150ms ease;
+}
+
+.sound-toggle-btn.playing .sound-bar:nth-child(1) { animation: soundBar 0.6s infinite alternate ease-in-out; }
+.sound-toggle-btn.playing .sound-bar:nth-child(2) { animation: soundBar 0.4s 0.2s infinite alternate ease-in-out; }
+.sound-toggle-btn.playing .sound-bar:nth-child(3) { animation: soundBar 0.8s 0.1s infinite alternate ease-in-out; }
+
+@keyframes soundBar {
+  0% { height: 2px; }
+  100% { height: 10px; }
+}
+
+/* Theme Switcher Quick Toggle */
+.theme-menu-btn {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  padding: 6px 12px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 4px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: var(--glass-blur);
+  transition: border-color var(--timing-fast);
+}
+
+.theme-menu-btn:hover {
+  border-color: var(--accent-color);
+}
+
+/* Fullscreen & Clean View (Zen) Toggle Buttons */
+.fullscreen-btn, .zen-btn {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  padding: 6px 12px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 4px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: var(--glass-blur);
+  transition: all var(--timing-fast);
+  cursor: pointer;
+}
+
+.fullscreen-btn:hover, .zen-btn:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.zen-btn.active {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+/* Custom Interactive Cursor (Desktop) */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 200ms ease, height 200ms ease, background 200ms ease, border-color 200ms ease;
+}
+
+.custom-cursor.hovering {
+  width: 32px;
+  height: 32px;
+  background: rgba(229, 184, 11, 0.15);
+  border-color: var(--accent-color);
+}
+
+.custom-cursor.explore::after {
+  content: 'EXPLORE';
+  position: absolute;
+  top: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--accent-color);
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .site-nav {
+    padding: 0 20px;
+    height: 60px;
+  }
+  .nav-links {
+    display: none;
+  }
+  .custom-cursor {
+    display: none !important;
+  }
+}

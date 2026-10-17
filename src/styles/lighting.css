@@ -1,0 +1,57 @@
+.lighting-dock {
+  position: fixed;
+  bottom: 18px;
+  right: 28px;
+  z-index: 95;
+  background: rgba(10, 12, 16, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+  padding: 3px 5px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+  transition: opacity 300ms ease;
+}
+
+.lighting-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 9px;
+  border-radius: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  transition: all var(--timing-fast);
+}
+
+.lighting-btn:hover {
+  color: var(--text-primary);
+}
+
+.lighting-btn.active {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--accent-color);
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+.lighting-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+@media (max-width: 768px) {
+  .lighting-dock {
+    bottom: 70px;
+    right: 50%;
+    transform: translateX(50%);
+    width: auto;
+  }
+}

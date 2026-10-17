@@ -1,0 +1,27 @@
+# Dependencies (reinstall with: npm install)
+node_modules/
+
+# Build output
+dist/
+
+# Vite cache
+.vite/
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor folders
+.vscode/
+.idea/
+*.suo
+*.user
+
+# Temporary raw extraction folder (frames are now committed inside public/frames/)
+ezgif-35e87feeda4143fc-jpg/

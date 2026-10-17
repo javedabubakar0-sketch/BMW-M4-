@@ -1,0 +1,97 @@
+:root {
+  /* Default Typography */
+  --font-headline: 'Syne', -apple-system, sans-serif;
+  --font-body: 'Outfit', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Default Theme: Carbon Night */
+  --bg-primary: #050505;
+  --bg-secondary: #0d0e11;
+  --bg-tertiary: #14161a;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a6b2;
+  --text-muted: #5c6370;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.16);
+  --accent-color: #e5b80b;
+  --accent-glow: rgba(229, 184, 11, 0.25);
+  --glass-bg: rgba(14, 16, 20, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: blur(8px);
+  --floor-reflection: rgba(5, 5, 5, 0.85);
+
+  --timing-fast: 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  --timing-normal: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  --timing-cinematic: 650ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Theme 01: Carbon Night */
+body.theme-carbon_night {
+  --bg-primary: #050505;
+  --bg-secondary: #0c0d10;
+  --bg-tertiary: #13151a;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a6b2;
+  --text-muted: #5c6370;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --accent-color: #e5b80b;
+  --accent-glow: rgba(229, 184, 11, 0.3);
+  --glass-bg: rgba(12, 13, 16, 0.8);
+}
+
+/* Theme 02: Titanium Studio */
+body.theme-titanium_studio {
+  --bg-primary: #101418;
+  --bg-secondary: #171c22;
+  --bg-tertiary: #202730;
+  --text-primary: #f0f4f8;
+  --text-secondary: #9cb0c4;
+  --text-muted: #647587;
+  --border-subtle: rgba(156, 176, 196, 0.12);
+  --accent-color: #5bc0be;
+  --accent-glow: rgba(91, 192, 190, 0.3);
+  --glass-bg: rgba(23, 28, 34, 0.82);
+}
+
+/* Theme 03: Rosso Track */
+body.theme-rosso_track {
+  --bg-primary: #120608;
+  --bg-secondary: #1a0a0c;
+  --bg-tertiary: #260f12;
+  --text-primary: #ffffff;
+  --text-secondary: #bca0a3;
+  --text-muted: #7d5e62;
+  --border-subtle: rgba(255, 42, 66, 0.14);
+  --accent-color: #ff2442;
+  --accent-glow: rgba(255, 36, 66, 0.35);
+  --glass-bg: rgba(26, 10, 12, 0.82);
+}
+
+/* Theme 04: Midnight Blue */
+body.theme-midnight_blue {
+  --bg-primary: #060c16;
+  --bg-secondary: #0a1322;
+  --bg-tertiary: #101d33;
+  --text-primary: #f0f6ff;
+  --text-secondary: #8ea8cb;
+  --text-muted: #536c8f;
+  --border-subtle: rgba(0, 210, 255, 0.12);
+  --accent-color: #00d2ff;
+  --accent-glow: rgba(0, 210, 255, 0.35);
+  --glass-bg: rgba(10, 19, 34, 0.82);
+}
+
+/* Theme 05: Light Atelier */
+body.theme-light_atelier {
+  --bg-primary: #e6e9ee;
+  --bg-secondary: #d9dfe7;
+  --bg-tertiary: #cbd3de;
+  --text-primary: #121418;
+  --text-secondary: #4a5462;
+  --text-muted: #788596;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --accent-color: #9e7d3b;
+  --accent-glow: rgba(158, 125, 59, 0.25);
+  --glass-bg: rgba(230, 233, 238, 0.85);
+  --glass-border: rgba(0, 0, 0, 0.08);
+}

@@ -1,0 +1,177 @@
+/* Editorial Gallery Section / View */
+.gallery-view {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  z-index: 85;
+  background-color: #050505;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 500ms ease, visibility 500ms;
+  overflow-y: auto;
+  padding: 100px 6vw 60px 6vw;
+}
+
+.gallery-view.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 24px;
+}
+
+.gallery-title {
+  font-family: var(--font-headline);
+  font-size: 3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.gallery-categories {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+}
+
+.gallery-cat-btn {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  transition: color var(--timing-fast);
+}
+
+.gallery-cat-btn.active, .gallery-cat-btn:hover {
+  color: var(--accent-color);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 30px;
+}
+
+.gallery-card {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #0e1014;
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: transform var(--timing-fast), border-color var(--timing-fast);
+}
+
+.gallery-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-color);
+}
+
+.gallery-img-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+}
+
+.gallery-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms ease;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-info {
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.gallery-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--accent-color);
+}
+
+.gallery-card-title {
+  font-family: var(--font-headline);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.gallery-card-desc {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Fullscreen Lightbox */
+.lightbox-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 300ms ease, visibility 300ms;
+  padding: 40px;
+}
+
+.lightbox-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-content {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.lightbox-content img {
+  max-height: 75vh;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+.lightbox-close {
+  align-self: flex-end;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+  padding: 8px 16px;
+  border-radius: 2px;
+}
+
+.lightbox-close:hover {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}

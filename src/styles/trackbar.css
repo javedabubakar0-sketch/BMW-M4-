@@ -1,0 +1,120 @@
+.trackbar-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(680px, 78vw);
+  z-index: 90;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: opacity 300ms ease;
+}
+
+.trackbar-line-wrapper {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 1px;
+}
+
+.trackbar-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: var(--accent-color);
+  box-shadow: 0 0 6px var(--accent-glow);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+/* Traveling Mini-Car Silhouette */
+.trackbar-car-silhouette {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 22px;
+  height: 11px;
+  pointer-events: none;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 5px var(--accent-glow));
+}
+
+.trackbar-car-silhouette svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--accent-color);
+}
+
+/* Chapters Row */
+.trackbar-chapters {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+}
+
+.track-chapter-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  background: transparent;
+  padding: 3px;
+  transition: transform var(--timing-fast);
+}
+
+.track-chapter-node:hover {
+  transform: translateY(-1px);
+}
+
+.chapter-pip {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all var(--timing-fast);
+}
+
+.track-chapter-node.active .chapter-pip {
+  background: var(--accent-color);
+  box-shadow: 0 0 6px var(--accent-color);
+  transform: scale(1.4);
+}
+
+.chapter-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  color: var(--text-muted);
+  opacity: 0.65;
+  transition: all var(--timing-fast);
+  text-transform: uppercase;
+}
+
+.track-chapter-node:hover .chapter-label,
+.track-chapter-node.active .chapter-label {
+  color: var(--text-primary);
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .trackbar-container {
+    width: 90vw;
+    bottom: 16px;
+  }
+  .chapter-label {
+    display: none;
+  }
+  .track-chapter-node.active .chapter-label {
+    display: block;
+    position: absolute;
+    bottom: 18px;
+    font-size: 0.58rem;
+  }
+}
